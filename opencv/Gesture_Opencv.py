@@ -21,9 +21,8 @@ while True:
             for (ex,ey,ew,eh) in hand_palm:
                 hand_roi=roi_color[ey:ey+eh,ex:ex+ew]# gray,frame
                 c=c-1
-                if c<=0:
-                    pag.hotkey('win','1')
-                    break
+                if c==0:
+                    pag.hotkey('win','6') # pyautogui test
     cv2.imshow("ok",frame)# gray,frame
     cv2.imshow("crop_part",hand_roi)
     if cv2.waitKey(25) & 0xFF == ord('q'):
