@@ -1,3 +1,4 @@
+import webbrowser
 import cv2
 import pyautogui as pag
 c=10
@@ -22,7 +23,10 @@ while True:
                 hand_roi=roi_color[ey:ey+eh,ex:ex+ew]# gray,frame
                 c=c-1
                 if c==0:
-                    pag.hotkey('win','6') # pyautogui test
+                    #pag.hotkey('win','1') # pyautogui test
+                    chromedir= 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
+                    webbrowser.get(chromedir).open("https://github.com/DR-NEGATIVE")
+
     cv2.imshow("ok",frame)# gray,frame
     cv2.imshow("crop_part",hand_roi)
     if cv2.waitKey(25) & 0xFF == ord('q'):
