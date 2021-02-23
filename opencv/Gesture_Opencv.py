@@ -22,10 +22,14 @@ while True:
             for (ex,ey,ew,eh) in hand_palm:
                 hand_roi=roi_color[ey:ey+eh,ex:ex+ew]# gray,frame
                 c=c-1
-                if c==0:
+                if c==5:
                     #pag.hotkey('win','1') # pyautogui test
+                    print("chrome command executed")
                     chromedir= 'C:/Program Files (x86)/Google/Chrome/Application/chrome.exe %s'
                     webbrowser.get(chromedir).open("https://github.com/DR-NEGATIVE")
+                if c==0:
+                    print("close command executed")
+                    pag.hotkey('win','down','down','down')
 
     cv2.imshow("ok",frame)# gray,frame
     cv2.imshow("crop_part",hand_roi)
