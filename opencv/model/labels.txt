@@ -1,0 +1,6 @@
+0 5finger
+1 2finger
+2 3Finger
+3 4finger
+4 1finger
+5 thumsup
