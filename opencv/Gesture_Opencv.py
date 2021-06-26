@@ -8,6 +8,7 @@ np.set_printoptions(suppress=True)
 # pre loading Model 
 model = tensorflow.keras.models.load_model('D:\Device-Control-Using-OpenCV-and-ML\Device-Control-Using-OpenCV-and-ML\opencv\model\keras_model.h5')
 data = np.ndarray(shape=(1, 224, 224, 3), dtype=np.float32)
+pred=[]
 def image_prediction(imageOpenCv):
     # Disable scientific notation for clarity
     #np.set_printoptions(suppress=True)
@@ -49,6 +50,7 @@ def image_prediction(imageOpenCv):
         l=l+1
         if indexfind == i:
             break
+    pred.append(dito[l])
     print("output is :=> ", dito[l])
 c=10
 f=0
@@ -89,9 +91,27 @@ while True:
 
     cv2.imshow("Gesture Detection ",frame)# gray,frame
     cv2.imshow("crop_part",hand_roi)
-    if cv2.waitKey(25) & 0xFF == ord('q'):
+    if cv2.waitKey(25) & 0xFF == ord('q') or len(pred)>6:
         
         break
 
-img.realese()
+#img.realese()
 cv2.destroyAllWindows()
+one=0
+two=0
+five=0
+for i in pred:
+    if i==1:
+        one+=1
+    elif i==2:
+        two+=1
+    else:
+        five+=1
+if one>two and one>five:
+    from opencv.Aircanvas import paintcv
+    paintcv.Aircanva()
+elif two>one and two>five:
+    pass
+else:
+    from opencv.BrowserOption import controller
+    controller.browser_control()
