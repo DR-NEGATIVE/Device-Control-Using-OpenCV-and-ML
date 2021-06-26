@@ -4,7 +4,7 @@ hand_xml=cv2.CascadeClassifier('D:/Device-Control-Using-OpenCV-and-ML/Device-Con
 
 while True:
     rt,frame=vid.read()
-    
+    cv2.imwrite("dito.jpg",frame)
     temp=frame
     frame=cv2.cvtColor(frame,cv2.COLOR_BGR2GRAY)
     (thresh, im_bw) = cv2.threshold(frame, 128, 255, cv2.THRESH_BINARY | cv2.THRESH_OTSU)
